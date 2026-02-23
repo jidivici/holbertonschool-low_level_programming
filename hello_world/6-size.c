@@ -14,10 +14,10 @@ int main(void)
 	long long int ll;
 	char c;
 
-	printf("Size of a char: %d bytes\n", (int)sizeof(c));
-	printf("Size of an int: %d bytes\n", (int)sizeof(i));
-	printf("Size of a long int: %d bytes\n", (int)sizeof(l));
-	printf("Size of a long long int: %d bytes\n", (int)sizeof(ll));
-	printf("Size of float: %d bytes\n", (int)sizeof(f));
+	printf("Size of a char: %d bytes(s)\n", (int)sizeof(c));
+	printf("Size of an int: %d bytes(s)\n", (int)sizeof(i));
+	printf("Size of a long int: %d bytes(s)\n", (int)sizeof(l));
+	printf("Size of a long long int: %d bytes(s)\n", (int)sizeof(ll));
+	printf("Size of float: %d bytes(s)\n", (int)sizeof(f));
 	return (0);
 }
