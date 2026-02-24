@@ -4,16 +4,24 @@
 *
 * Return: 0 (sucess)
 */
+void separator(void)
+{
+	putchar(',');
+	putchar(' ');
+}
+
 int main(void)
 {
-	int i = 0;
-	char *number = "0123456789abcdef\n";
+	char c = '0';
 
-	while (number[i] != '\n')
+	for (c = '0'; c <= '9'; c++)
 	{
-		putchar(number[i]);
-		i++;
+		putchar(c);
+		if (c == '9') {
+			putchar('\n');
+			return (0);
+			}
+		separator();
 	}
-	putchar('\n');
 	return (0);
 }
