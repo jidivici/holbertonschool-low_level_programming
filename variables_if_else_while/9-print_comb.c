@@ -1,15 +1,19 @@
 #include <stdio.h>
 /**
-* main - entry point
+* separator - print ', '
 *
-* Return: 0 (sucess)
+* Return: none
 */
 void separator(void)
 {
 	putchar(',');
 	putchar(' ');
 }
-
+/**
+* main - entry point
+*
+* Return: 0 (sucess)
+*/
 int main(void)
 {
 	char c = '0';
