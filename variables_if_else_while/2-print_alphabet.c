@@ -6,32 +6,11 @@
 */
 int main(void)
 {
-	putchar('a');
-	putchar('b');
-	putchar('c');
-	putchar('d');
-	putchar('e');
-	putchar('f');
-	putchar('g');
-	putchar('h');
-	putchar('i');
-	putchar('j');
-	putchar('k');
-	putchar('l');
-	putchar('m');
-	putchar('n');
-	putchar('o');
-	putchar('p');
-	putchar('q');
-	putchar('r');
-	putchar('s');
-	putchar('t');
-	putchar('u');
-	putchar('v');
-	putchar('w');
-	putchar('x');
-	putchar('y');
-	putchar('z');
+	char *alphabet = "abcdefghijklmnopqrstuvwxyz\n";
+	int i = 0;
+
+	while (alphabet[i] != '\n')
+		putchar(alphabet[i++]);
 	putchar('\n');
 	return (0);
 }
