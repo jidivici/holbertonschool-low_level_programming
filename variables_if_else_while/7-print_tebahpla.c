@@ -7,7 +7,7 @@
 int main(void)
 {
 	int i = 0;
-	char *number = "zyxwvutsrqponmlkjihgfedcba\n";
+	char *number = "0123456789abcdef\n";
 
 	while (number[i] != '\n')
 	{
