@@ -9,7 +9,7 @@
 
 void print_alphabet(void)
 {
-	char *alphabet = "abcdefghijklmnopqrst";
+	char *alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 	while (*alphabet)
 		_putchar(*alphabet++);
