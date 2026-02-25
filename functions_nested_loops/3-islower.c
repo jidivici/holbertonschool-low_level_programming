@@ -2,8 +2,7 @@
 #include "main.h"
 /**
 * _islower -  S/output
-* i: num of rep
-* c: select letter
+* @c: int use ascii table
 *
 * Return: None
 */
