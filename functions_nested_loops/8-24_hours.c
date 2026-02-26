@@ -6,7 +6,7 @@
 *
 * Return: int positive or neg
 */
-int main (void)
+void jack_bauer(void)
 {
 	int hours = 0;
 	int minutes = 0;
@@ -23,5 +23,4 @@ int main (void)
 			_putchar('\n');
 		}
 	}
-	return (0);
 }
