@@ -1,15 +1,13 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-* jack_bauer - print all clock from 00:00 to 23:59
+* times_table - print table of 9 with putchar
 *
 * Return: int positive or neg
 */
-void main(void)
+void times_table(void)
 {
-	int i = 0;
-	int j = 0;
-	int result = 0;
+	int i, j, result;
 
 	for (i = 0; i <= 9; i++)
 	{
