@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-* jack_bauer - give absolute of number n
-* @n: for number
+* jack_bauer - print all clock from 00:00 to 23:59
 *
 * Return: int positive or neg
 */
