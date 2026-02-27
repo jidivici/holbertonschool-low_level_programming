@@ -1,3 +1,4 @@
+#include "main.h"
 /**
 * mul - check caracter if is digit or not
 * @a: number 1
