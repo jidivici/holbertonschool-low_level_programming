@@ -7,7 +7,7 @@
 *
 * Return: result of a * b
 */
-void more_numbers(void)
+void main(void)
 {
 	char *digit = "01234567891011121314\n";
 	int i, j = 0;
@@ -22,5 +22,6 @@ void more_numbers(void)
 		_putchar('\n');
 		i = 0;
 	}
-	_putchar('\n');
+	if ( j == 1)
+		_putchar('\n');
 }
