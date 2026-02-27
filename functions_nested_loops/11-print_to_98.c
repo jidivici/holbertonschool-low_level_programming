@@ -30,7 +30,7 @@ void print_to_98(int n)
 			_putchar(',');
 			_putchar(' ');
 		}
-		if (n > 97)
+		if (n > 99)
 		{
 			if (n / 100 != 0)
 				_putchar((n / 100) + '0');
