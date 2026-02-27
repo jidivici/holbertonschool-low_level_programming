@@ -7,9 +7,9 @@
 *
 * Return: result of a * b
 */
-void more_numbers(void)
+void main(void)
 {
-	char *digit = "0135678910111214\n";
+	char *digit = "01234567891011121314\n";
 	int i, j = 0;
 
 	for (j = 0; j <= 9; j++)
@@ -20,6 +20,7 @@ void more_numbers(void)
 			i++;
 		}
 		_putchar('\n');
+		i = 0;
 	}
 	_putchar('\n');
 }
