@@ -22,6 +22,6 @@ void more_numbers(void)
 		_putchar('\n');
 		i = 0;
 	}
-	if ( j == 1)
+	if (j == 1)
 		_putchar('\n');
 }
