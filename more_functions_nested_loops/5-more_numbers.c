@@ -5,7 +5,7 @@
 * i: index
 * j: repetition
 *
-* Return: result of a * b
+* Return: void
 */
 void main(void)
 {
