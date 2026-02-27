@@ -7,7 +7,7 @@
 *
 * Return: void
 */
-void main(void)
+void more_numbers(void)
 {
 	char *digit = "01234567891011121314\n";
 	int i, j = 0;
