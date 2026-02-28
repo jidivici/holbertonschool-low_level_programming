@@ -1,11 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* fizz_buzz - replace multiple of 3 and 5
+* main - replace multiple of 3 and 5
 *
 * Return: void
 */
-void fizz_buzz(void)
+int main(void)
 {
 	int i = 0;
 
@@ -20,4 +20,5 @@ void fizz_buzz(void)
 		else
 			printf("%d ", i);
 		}
+	return (0);
 }
