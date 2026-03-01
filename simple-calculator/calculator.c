@@ -1,28 +1,28 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * switch_ope - executes operation based on user choice
- * @code: operation number selected by the user
+ * ope - handle the operation choose
+ * @code: operation number entered by the user
  *
- * Return: 1 after executing operation
+ * Return: 1 if done
  */
-int switch_ope(int code)
+int ope(int code)
 {
-	switch (code)
-	{
-		case 1:
-			addition();
-			return (1);
-		case 2:
-			substract();
-			return (1);
-		case 3:
-			multiplication();
-			return (1);
-		case 4:
-			division();
-			return (1);
-	}
+	int a, b, sum = 0;
+
+	printf("A: ");
+	scanf("%d", &a);
+	printf("B: ");
+	scanf("%d", &b);
+	if (code == 1)
+		sum = (a + b);
+	else if (code == 2)
+		sum = (a - b);
+	else if (code == 3)
+		sum = (a * b);
+	else if (code == 4)
+		sum = (a / b);
+	printf("Result: %d\n", sum);
 	return (1);
 }
 /**
@@ -75,7 +75,7 @@ int main(void)
 		scanf("%d", &code);
 		if (checker(code))
 		{
-			if (switch_ope(code))
+			if (ope(code))
 				print_menu();
 		}
 	}
