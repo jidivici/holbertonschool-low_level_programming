@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <time.h>
+#include "time.h"
 
 #define DATASET_SIZE 50000
 #define SEED_VALUE 42u
