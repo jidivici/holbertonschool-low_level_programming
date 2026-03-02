@@ -1,19 +1,19 @@
 #include <stdio.h>
+#include "main.h"
 /**
-* _puts - print string with \n
+* print_rev - print string reverse
 * @s: pointer str print
 *
-* Return: result of a * b
+* Return: nothing
 */
-int _puts(char *s)
+void print_rev(char *s)
 {
-	int i = 0;
+	int i = _strlen(s);
 
-	while (s[i] != '\0')
+	while (i >= 0)
 	{
 		putchar(s[i]);
-		i++;
+		i--;
 	}
 	putchar('\n');
-	return (0);
 }
