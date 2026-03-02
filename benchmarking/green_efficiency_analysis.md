@@ -6,7 +6,7 @@ In this experiment I compare two implementations to compute sum from 1 to n.
 
 I compile both programs with same flags:
 
-gcc -Wall -Wextra -Werror
+gcc -Wall -Wextra -Werror -pedantic
 
 I run everything on same macOS ARM machine.  
 To measure time I use `clock()` from `<time.h>`:
