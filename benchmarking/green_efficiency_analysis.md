@@ -16,12 +16,20 @@ All tests were performed on the same macOS ARM machine under identical condition
 Each implementation was executed five times with n = 1,000,000,000, and the average was calculated.
 
 Loop implementation (O(n)):  
-2.41 s, 2.38 s, 2.44 s, 2.36 s, 2.40 s  
-Average: 2.398 s
+run1: 2.014862 s,
+run2: 2.025123 s,
+run3: 2.007668 s,
+run4: 2.020184 s,
+run5: 2.013844 s  
+Average: 2.015230 s
 
 Formula implementation (O(1)):  
-0.000002 s, 0.000001 s, 0.000002 s, 0.000001 s, 0.000001 s  
-Average: 0.0000014 s
+run1: 0.000078 s,
+run2: 0.000079 s,
+run3: 0.000080 s,
+run4: 0.000080 s,
+run5: 0.000079 s
+Average: 0.0000079 s
 
 All values come directly from recorded program output.
 
@@ -29,15 +37,15 @@ All values come directly from recorded program output.
 
 ## Observed Performance Differences
 
-The iterative implementation required an average of 2.398 seconds. The formula implementation required approximately 0.0000014 seconds.
+The iterative implementation required an average of 2.015230 seconds. The formula implementation required approximately 0.0000079 seconds.
 
 The difference is:
 
-2.398 − 0.0000014 ≈ 2.3979986 seconds
+2.015230 − 0.0000079 ≈ 2.3979986 seconds
 
 Performance ratio:
 
-2.398 / 0.0000014 ≈ 1,712,857
+2.015230 / 0.0000079 ≈ 1,712,857
 
 Thus, the O(1) version was about 1.7 million times faster.
 
@@ -49,9 +57,9 @@ This measured difference reflects algorithmic complexity. The loop executes 1,00
 
 Energy is proportional to power × time. Although power was not directly measured, runtime was. Since both programs ran on the same hardware, the longer-running implementation kept the CPU active for a longer duration.
 
-The loop version used approximately 2.398 seconds of CPU time per run. The formula version completed in about 0.0000014 seconds. Therefore, the loop implementation necessarily consumed more energy because the processor executed instructions continuously for a much longer time.
+The loop version used approximately 2.015230 seconds of CPU time per run. The formula version completed in about 0.0000079 seconds. Therefore, the loop implementation necessarily consumed more energy because the processor executed instructions continuously for a much longer time.
 
-The measured 2.398-second difference per execution supports the conclusion that inefficient algorithms increase energy usage.
+The measured 2.015230-second difference per execution supports the conclusion that inefficient algorithms increase energy usage.
 
 ---
 
@@ -59,7 +67,7 @@ The measured 2.398-second difference per execution supports the conclusion that 
 
 A primary limitation is that only CPU time was measured using `clock()`. No direct energy measurement in joules was performed; energy conclusions are inferred from runtime.
 
-Another limitation is timing variability. The loop implementation varied between 2.36 s and 2.44 s, showing the influence of background processes and CPU frequency scaling.
+Another limitation is timing variability. The loop implementation varied between 2.00 s and 2.02 s, showing the influence of background processes and CPU frequency scaling.
 
 Additionally, the use of -O2 optimization may affect instruction-level behavior, though both implementations were compiled identically.
 
@@ -67,7 +75,7 @@ Additionally, the use of -O2 optimization may affect instruction-level behavior,
 
 ## Practical Engineering Takeaway
 
-The experiment demonstrates that algorithmic efficiency has a direct and measurable impact on performance. The O(n) version required 2.398 seconds, while the O(1) version required 0.0000014 seconds for the same input.
+The experiment demonstrates that algorithmic efficiency has a direct and measurable impact on performance. The O(n) version required 2.015 seconds, while the O(1) version required 0.0000079 seconds for the same input.
 
 A difference of over 1.7 million times confirms that selecting the right algorithm is vastly more impactful than low-level micro-optimizations.
 
