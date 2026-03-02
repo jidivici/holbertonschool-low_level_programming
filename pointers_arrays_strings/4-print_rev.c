@@ -1,6 +1,20 @@
 #include <stdio.h>
 #include "main.h"
 /**
+* _strlen - return len of str
+* @s: char str
+*
+* Return: result of a * b
+*/
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+/**
 * print_rev - print string reverse
 * @s: pointer str print
 *
@@ -12,8 +26,8 @@ void print_rev(char *s)
 
 	while (i >= 0)
 	{
-		putchar(s[i]);
+		_putchar(s[i]);
 		i--;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
