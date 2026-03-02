@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
 * _puts - print string with \n
 * @s: string printed
