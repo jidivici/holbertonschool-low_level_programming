@@ -34,7 +34,8 @@ run4: 0.000080 s
 run5: 0.000079 s  
 Average: 0.0000079 s
 
-All numbers come from my program output.
+All numbers come from my program output.  
+These measurements provide a solid basis to compare the two algorithms under the same conditions and show real execution time differences.
 
 ---
 
@@ -55,7 +56,8 @@ So formula version is around 255,000 times faster.
 
 Loop make more 600,000,000 iterations.  
 Formula make only few operations.  
-My measurements clearly show big impact of complexity.
+My measurements clearly show big impact of complexity.  
+This demonstrates that algorithm choice is more important than low-level optimizations and can drastically change runtime.
 
 ---
 
@@ -69,7 +71,8 @@ Formula run for 0.0000079 seconds.
 
 CPU stay active much longer for loop.  
 So loop consume more energy.  
-This conclusion based on measured runtime.
+This conclusion based on measured runtime.  
+From an engineering perspective, reducing runtime with better algorithms also reduces energy consumption, which can be critical in large-scale or battery-powered systems.
 
 ---
 
@@ -79,9 +82,10 @@ First limitation: I measure only CPU time with `clock()`.
 I did not measure real energy in joules.
 
 Second limitation: small timing variation.  
-Loop vary between 2.007 s and 2.025 s.  
+Loop vary between 2.007 s and 2.025 s.
 
-Background process and CPU scaling can affect results.
+Background process and CPU scaling can affect results.  
+These factors introduce minor variability, but the overall difference between the two algorithms is so large that conclusions remain valid.
 
 ---
 
@@ -93,6 +97,10 @@ O(n) version take 2.015 seconds.
 O(1) version take 0.0000079 seconds.
 
 Better algorithm give massive improvement.  
-Much more important than micro optimization.
+Much more important than micro optimization.  
 Less runtime mean less CPU active time.  
 Less CPU time mean less energy use.
+
+In conclusion, choosing the right algorithm has a major impact on both performance and efficiency.  
+Even small changes in approach can lead to huge differences in execution time and resource usage.  
+This experiment highlights the importance of algorithm analysis and selection in practical software engineering.
