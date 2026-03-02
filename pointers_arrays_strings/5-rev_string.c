@@ -23,12 +23,16 @@ int _strlen(char *s)
 */
 void rev_string(char *s)
 {
-	int i = _strlen(s) + 1;
+	int i = _strlen(s) - 1;
+	int j = 0;
+	char tmp;
 
-	while (i > 0)
+	while (i > j)
 	{
-		_putchar(s[i]);
+		tmp = s[j];
+		s[j] = s[i];
+		s[i] = tmp;
 		i--;
+		j++;
 	}
-	_putchar('\n');
 }
