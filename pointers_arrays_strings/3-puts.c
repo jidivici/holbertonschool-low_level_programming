@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include "main.h"
 /**
 * _puts - print string with \n
-* @s: pointer str print
+* @s: string printed
 *
 * Return: result of a * b
 */
