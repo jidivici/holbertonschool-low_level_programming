@@ -2,8 +2,7 @@
 
 ## Measurement Methodology
 
-In this experiment I compare two implementations to compute sum from 1 to n.  
-First version use loop (O(n)). Second version use formula n × (n + 1) / 2 (O(1)).
+In this experiment I compare two implementations to compute sum from 1 to n.
 
 I compile both programs with same flags:
 
@@ -84,7 +83,6 @@ Loop vary between 2.007 s and 2.025 s.
 
 Background process and CPU scaling can affect results.
 
-
 ---
 
 ## Practical Engineering Takeaway
@@ -96,8 +94,5 @@ O(1) version take 0.0000079 seconds.
 
 Better algorithm give massive improvement.  
 Much more important than micro optimization.
-
 Less runtime mean less CPU active time.  
 Less CPU time mean less energy use.
-
-Good algorithm design is essential in real engineering.
