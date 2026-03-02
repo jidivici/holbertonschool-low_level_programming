@@ -2,81 +2,102 @@
 
 ## Measurement Methodology
 
-Two implementations were evaluated to compute the sum of integers from 1 to n. The first used an iterative loop (O(n)), and the second used the closed-form formula n × (n + 1) / 2 (O(1)). Both programs were compiled with:
+In this experiment I compare two implementations to compute sum from 1 to n.  
+First version use loop (O(n)). Second version use formula n × (n + 1) / 2 (O(1)).
 
-gcc -Wall -Wextra -Werror -pedantic -std=c99 -O2 program.c -o program
+I compile both programs with same flags:
 
-All tests were performed on the same macOS ARM machine under identical conditions. Execution time was measured using `clock()` from `<time.h>`:
+gcc -Wall -Wextra -Werror
+
+I run everything on same macOS ARM machine.  
+To measure time I use `clock()` from `<time.h>`:
 
 - start = clock()
-- execute computation
+- execute code
 - end = clock()
-- elapsed time = (double)(end - start) / CLOCKS_PER_SEC
+- time = (double)(end - start) / CLOCKS_PER_SEC
 
-Each implementation was executed five times with n = 1,000,000,000, and the average was calculated.
+I run each version 5 times with n = 1,000,000,000.
 
-Loop implementation (O(n)):  
-run1: 2.014862 s,
-run2: 2.025123 s,
-run3: 2.007668 s,
-run4: 2.020184 s,
+Loop (O(n)):  
+run1: 2.014862 s  
+run2: 2.025123 s  
+run3: 2.007668 s  
+run4: 2.020184 s  
 run5: 2.013844 s  
 Average: 2.015230 s
 
-Formula implementation (O(1)):  
-run1: 0.000078 s,
-run2: 0.000079 s,
-run3: 0.000080 s,
-run4: 0.000080 s,
-run5: 0.000079 s
+Formula (O(1)):  
+run1: 0.000078 s  
+run2: 0.000079 s  
+run3: 0.000080 s  
+run4: 0.000080 s  
+run5: 0.000079 s  
 Average: 0.0000079 s
 
-All values come directly from recorded program output.
+All numbers come from my program output.
 
 ---
 
 ## Observed Performance Differences
 
-The iterative implementation required an average of 2.015230 seconds. The formula implementation required approximately 0.0000079 seconds.
+Loop version take average 2.015230 seconds.  
+Formula version take 0.0000079 seconds.
 
-The difference is:
+Difference:
 
-2.015230 − 0.0000079 ≈ 2.3979986 seconds
+2.015230 − 0.0000079 ≈ 2.0152221 seconds
 
 Performance ratio:
 
-2.015230 / 0.0000079 ≈ 1,712,857
+2.015230 / 0.0000079 ≈ 255,092
 
-Thus, the O(1) version was about 1.7 million times faster.
+So formula version is around 255,000 times faster.
 
-This measured difference reflects algorithmic complexity. The loop executes 1,000,000,000 iterations, while the formula performs a constant number of arithmetic operations. The experimental data confirms that asymptotic complexity produces concrete runtime differences.
+Loop make more 600,000,000 iterations.  
+Formula make only few operations.  
+My measurements clearly show big impact of complexity.
 
 ---
 
 ## Relation Between Runtime and Energy Consumption
 
-Energy is proportional to power × time. Although power was not directly measured, runtime was. Since both programs ran on the same hardware, the longer-running implementation kept the CPU active for a longer duration.
+I did not measure power directly.  
+But both programs run on same machine.
 
-The loop version used approximately 2.015230 seconds of CPU time per run. The formula version completed in about 0.0000079 seconds. Therefore, the loop implementation necessarily consumed more energy because the processor executed instructions continuously for a much longer time.
+Loop run for about 2.015 seconds.  
+Formula run for 0.0000079 seconds.
 
-The measured 2.015230-second difference per execution supports the conclusion that inefficient algorithms increase energy usage.
+CPU stay active much longer for loop.  
+So loop consume more energy.  
+This conclusion based on measured runtime.
 
 ---
 
 ## Limitations of the Experiment
 
-A primary limitation is that only CPU time was measured using `clock()`. No direct energy measurement in joules was performed; energy conclusions are inferred from runtime.
+First limitation: I measure only CPU time with `clock()`.  
+I did not measure real energy in joules.
 
-Another limitation is timing variability. The loop implementation varied between 2.00 s and 2.02 s, showing the influence of background processes and CPU frequency scaling.
+Second limitation: small timing variation.  
+Loop vary between 2.007 s and 2.025 s.  
 
-Additionally, the use of -O2 optimization may affect instruction-level behavior, though both implementations were compiled identically.
+Background process and CPU scaling can affect results.
+
 
 ---
 
 ## Practical Engineering Takeaway
 
-The experiment demonstrates that algorithmic efficiency has a direct and measurable impact on performance. The O(n) version required 2.015 seconds, while the O(1) version required 0.0000079 seconds for the same input.
+From this experiment I see clearly algorithm matter a lot.
 
-A difference of over 1.7 million times confirms that selecting the right algorithm is vastly more impactful than low-level micro-optimizations.
+O(n) version take 2.015 seconds.  
+O(1) version take 0.0000079 seconds.
 
-Reducing algorithmic complexity reduces runtime, and shorter runtime reduces CPU active time and therefore energy consumption. Efficient algorithm design is essential for both performance and resource efficiency.
+Better algorithm give massive improvement.  
+Much more important than micro optimization.
+
+Less runtime mean less CPU active time.  
+Less CPU time mean less energy use.
+
+Good algorithm design is essential in real engineering.
