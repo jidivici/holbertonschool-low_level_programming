@@ -27,6 +27,7 @@ int separator(char c)
 char *cap_string(char *s)
 {
 	int i = 0;
+	char *beg_point = s;
 
 	while (s[i] != '\0')
 	{
@@ -34,5 +35,5 @@ char *cap_string(char *s)
 			s[i] = (s[i] - 32);
 		i++;
 	}
-	return (s);
+	return (beg_point);
 }
