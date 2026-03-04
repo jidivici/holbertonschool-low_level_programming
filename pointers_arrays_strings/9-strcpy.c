@@ -5,10 +5,12 @@
 * @dest: array you want print
 * @src: taille de l array
 *
-* Return: nothing
+* Return: char *
 */
 char *_strcpy(char *dest, char *src)
 {
+	if (dest == NULL || src == NULL)
+		return NULL;
 	char *p = dest;
 	while
 		((*dest++ = *src++));
