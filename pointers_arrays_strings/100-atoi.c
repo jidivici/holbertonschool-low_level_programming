@@ -6,7 +6,7 @@
 *
 * Return: int
 */
-int _atoi(char *s)
+unsigned long _atoi(char *s)
 {
 	int	i = 0, find = 0, sign = 1;
 	unsigned long result = 0;
