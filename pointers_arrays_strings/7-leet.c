@@ -10,13 +10,13 @@ char *leet(char *s)
 {
 	int i = 0, j = 0;
 	char *letters = "aAeEoOtTlL";
-	char *numbers = "4455007711";
+	char *numbers = "4433007711";
 
 	for (; s[i] != '\0'; i++)
 	{
 		for (j = 0; letters[j] != '\0'; j++)
 		{
-			if (letters[j] == s[i])
+			if (s[i] == letters[j])
 				s[i] = numbers[j];
 		}
 	}
