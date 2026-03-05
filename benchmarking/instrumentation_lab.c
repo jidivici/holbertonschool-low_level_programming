@@ -54,24 +54,33 @@ int main(void)
 {
 	clock_t begin, end, begin1, end1, begin2, end2,
 			begin3, end3;
+	double t1 = 0, t2 = 0, t3 = 0, t4 = 0;
 	unsigned long checksum;
+
 	begin = clock();
 	begin1 = clock();
+
 	build_dataset();
 	end1 = clock();
+	t2 = (double)(end1 - begin1) / CLOCKS_PER_SEC;
+
 	begin2 = clock();
 	process_dataset();
 	end2 = clock();
+	t3 = (double)(end2 - begin2) / CLOCKS_PER_SEC;
+
 	begin3 = clock();
 	checksum = reduce_checksum();
 	end3 = clock();
+	t4 = (double)(end3 - begin3) / CLOCKS_PER_SEC;
 
 	if (checksum == 0ul)
 		printf("impossible\n");
 	end = clock();
-	printf("TOTAL seconds: %f\n", (double)(end - begin) / CLOCKS_PER_SEC);
-	printf("BUILD_DATA seconds: %f\n", (double)(end1 - begin1) / CLOCKS_PER_SEC);
-	printf("PROCESS seconds: %f\n", (double)(end2 - begin2) / CLOCKS_PER_SEC);
-	printf("REDUCE seconds: %f\n", (double)(end3 - begin3) / CLOCKS_PER_SEC);
+	t1 = (double)(end - begin) / CLOCKS_PER_SEC;
+	printf("TOTAL seconds: %f\n", t1);
+	printf("BUILD_DATA seconds: %f\n", t2);
+	printf("PROCESS seconds: %f\n", t3);
+	printf("REDUCE seconds: %f\n", t4);
 	return (0);
 }
