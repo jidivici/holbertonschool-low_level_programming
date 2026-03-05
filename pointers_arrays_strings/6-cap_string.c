@@ -27,13 +27,14 @@ int separator(char c)
 char *cap_string(char *s)
 {
 	int i = 0;
-	char *beg_point = s;
 
+	if (s[0] >= 'a' && s[0] <= 'z')
+		s[i] = (s[i] - 32);
 	while (s[i] != '\0')
 	{
 		if (s[i] >= 'a' && s[i] <= 'z' && separator(s[i - 1]))
 			s[i] = (s[i] - 32);
 		i++;
 	}
-	return (beg_point);
+	return (s);
 }
