@@ -9,12 +9,13 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i = 0, j = 0;
+
+	int i = 0, left_diag = 0, right_diag = 0;
 
 	for (i = 0; i < size; i++)
-		{
-		for (j = 0; j < size; j++)
-			printf("%d\t", a[i * size + j]);
-		}
-	printf("\n");
+	{
+		left_diag = left_diag + a[i * size + i];
+		right_diag = right_diag + a[i * size + (size - 1 - i)];
+	}
+	printf("%d, %d\n", left_diag, right_diag);
 }
