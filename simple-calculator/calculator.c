@@ -21,19 +21,19 @@ int ope(int code)
 	else if (code == 3)
 		sum = (a * b);
 	else if (code == 4)
+	{
+		if (b == 0)
 		{
-			if (b == 0)
-			{
-				printf("Error: division by zero\n");
-				return (1);
-			}
-			else
-			{
-				sum = (double)a / b;
-				printf("Result: %.1f\n", sum);
-				return (1);
-			}
+			printf("Error: division by zero\n");
+			return (1);
 		}
+		else
+		{
+			sum = (double)a / b;
+			printf("Result: %.1f\n", sum);
+			return (1);
+		}
+	}
 	printf("Result: %.0f\n", sum);
 	return (1);
 }
