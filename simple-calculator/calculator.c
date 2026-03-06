@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 /**
  * ope - handle the operation choose
@@ -8,7 +7,8 @@
  */
 int ope(int code)
 {
-	int a, b, sum = 0;
+	int a, b = 0;
+	double sum = 0;
 
 	printf("A: ");
 	scanf("%d", &a);
@@ -21,8 +21,20 @@ int ope(int code)
 	else if (code == 3)
 		sum = (a * b);
 	else if (code == 4)
-		sum = (a / b);
-	printf("Result: %d\n", sum);
+		{
+			if (b == 0)
+			{
+				printf("Error: division by zero\n");
+				return (1);
+			}
+			else
+			{
+				sum = (double)a / b;
+				printf("Result: %.1f\n", sum);
+				return (1);
+			}
+		}
+	printf("Result: %.0f\n", sum);
 	return (1);
 }
 /**
