@@ -15,7 +15,14 @@ int _strlen(char *s)
 		i++;
 	return (i);
 }
-
+/**
+ * str_concat - concatenates two strings into a newly allocated memory
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: pointer to the new string containing s1 followed by s2,
+ * or NULL if memory allocation fails
+ */
 char *str_concat(char *s1, char *s2)
 {
 	int len = _strlen(s1) + _strlen(s2) + 1;
