@@ -25,20 +25,44 @@ int _strlen(char *s)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len = _strlen(s1) + _strlen(s2) + 1;
-	int i = 0, j = 0, len_s1 = _strlen(s1);
-	char *array_1 = _strdup(s1);
-	char *array_2 = _strdup(s2);
-	char *concat_arr = malloc(len * sizeof(char));
+	int len1 = 0, len2 = 0;
+	int i = 0, j = 0, k = 0;
+	char *concat;
 
-	if (concat_arr == NULL)
+	if (s1)
+		len1 = _strlen(s1);
+	if (s2)
+		len2 = _strlen(s2);
+	concat = malloc(len1 + len2 + 1);
+	if (concat == NULL)
 		return (NULL);
-	while (array_1[i] != '\0' && array_2[j] != '\0')
+	while (i < len1 + len2)
 	{
-		concat_arr[i] = array_1[i];
-		concat_arr[j + len_s1] = array_2[j];
-		i++, j++;
+		if (j < len1)
+			concat[i] = s1[j++];
+		else
+			concat[i] = s2[k++];
+		i++;
 	}
-	concat_arr[i] = '\0';
-	return (concat_arr);
+	concat[i] = '\0';
+	return (concat);
+}
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char *s;
+
+    s = str_concat("Best ", "School");
+    if (s == NULL)
+    {
+        printf("failed\n");
+        return (1);
+    }
+    printf("%s\n", s);
+    free(s);
+    return (0);
 }
