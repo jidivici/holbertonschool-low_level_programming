@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 /**
 * _strlen - return len of str
 * @s: char str
@@ -25,7 +26,7 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int len1 = 0, len2 = 0;
-	unsigned int i, j;
+	unsigned int i = 0, j = 0;
 	char *concat;
 
 	if (s1 != NULL)
@@ -40,7 +41,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (i = 0; i < len1; i++)
 		concat[i] = s1[i];
 	for (j = 0; j < n; j++)
-		concat[i + j] = s2[j];
+		concat[i + j] = s2 ? s2[j] : 0;
+	if (s2 == NULL)
+		concat[i + len1] = '\0';
 	concat[i + j] = '\0';
 	return concat;
+}
+
+int main(void)
+{
+	char *concat;
+
+	concat = string_nconcat("best", NULL, 0);
+	printf("%s\n", concat);
+	free(concat);
+	return (0);
 }
