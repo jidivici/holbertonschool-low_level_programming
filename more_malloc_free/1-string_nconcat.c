@@ -1,6 +1,19 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include "main.h"
+/**
+* _strlen - return len of str
+* @s: char str
+*
+* Return: result of a * b
+*/
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 /**
  * string_nconcat - concatenates n bytes of s2 to s1
  * @s1: first string (can be NULL)
@@ -30,22 +43,4 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		concat[i + j] = s2[j];
 	concat[i + j] = '\0';
 	return concat;
-}
-#include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	char *concat;
-
-	concat = string_nconcat("Best ", "School !!!", 6);
-	printf("%s\n", concat);
-	free(concat);
-	return (0);
 }
