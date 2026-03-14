@@ -45,15 +45,5 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		concat[i + len1] = '\0';
 	concat[i + j] = '\0';
-	return concat;
-}
-
-int main(void)
-{
-	char *concat;
-
-	concat = string_nconcat("best", NULL, 0);
-	printf("%s\n", concat);
-	free(concat);
-	return (0);
+	return (concat);
 }
