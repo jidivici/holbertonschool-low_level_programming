@@ -1,6 +1,18 @@
 #include "main.h"
 #include <stdio.h>
 /**
+ * _strlen_recursion - returns the length of a string using recursion
+ * @s: pointer to the string
+ *
+ * Return: length of the string
+ */
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+		return (0);
+	return (_strlen_recursion(s + 1) + 1);
+}
+/**
  * found_palindrome - recursively checks if a substring is a palindrome
  * @s: string to check
  * @start: starting index of the substring
@@ -25,7 +37,7 @@ int found_palindrome(char *s, int start, int len)
  */
 int is_palindrome(char *s)
 {
-	int len = _strlen(s);
+	int len = _strlen_recursion(s);
 
 	return (found_palindrome(s, 0, len - 1));
 }
