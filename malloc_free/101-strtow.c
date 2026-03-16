@@ -43,10 +43,14 @@ int word_len(char *s, int start)
  */
 char **strtow(char *str)
 {
-	int word = count_words(str);
+	int word = 0;
 	int i = 0, len = 0, j = 0, k = 0;
-	char **ptr = malloc((word + 1) * sizeof(char *));
+	char **ptr = NULL;
 
+	if (str == NULL || *str == '\0')
+		return (NULL);
+	word = count_words(str);
+	ptr = malloc((word + 1) * sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < word; i++)
