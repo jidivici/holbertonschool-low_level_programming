@@ -1,7 +1,16 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-
+/**
+ * print_numbers - prints a variable number of integers
+ * @separator: string printed between numbers, or NULL for no separator
+ * @i: total number of integers to print
+ *
+ * Description: this function prints each integer followed by the separator
+ * except after the last number
+ *
+ * Return: void
+ */
 void print_numbers(const char *separator, const unsigned int i, ...)
 {
 	va_list args;
@@ -19,14 +28,4 @@ void print_numbers(const char *separator, const unsigned int i, ...)
 	}
 	printf("\n");
 	va_end(args);
-}
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	print_numbers(", ", 4, 0, 98, -1024, 402);
-	return (0);
 }
