@@ -9,6 +9,23 @@ int _strlen(char *str);
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
+
+/**
+ * struct op_s - Structure pour associer un caractère à une fonction
+ * @op: Le caractère représentant le type à afficher
+ * @f: Pointeur de fonction pointe avec le va list adequate.
+ *
+ * Cette structure permet de lier un type de donnée print
+ * dans des fonctions variadiques comme print_all.
+ */
+typedef struct op_s
+{
+
+	char op;
+	void (*f)(va_list);
+
+} op_t;
+
 void print_all(const char * const format, ...);
 
 #endif
