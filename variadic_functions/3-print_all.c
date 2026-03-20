@@ -64,10 +64,10 @@ void print_all(const char * const format, ...)
 	va_list ap;
 
 	op_t print_flag[] = {
-		{'i', print_int},
 		{'c', print_char},
-		{'s', print_string},
+		{'i', print_int},
 		{'f', print_double},
+		{'s', print_string},
 		{0, NULL}
 	};
 	va_start(ap, format);
