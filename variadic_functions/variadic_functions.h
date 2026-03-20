@@ -22,7 +22,7 @@ typedef struct op_s
 {
 
 	char op;
-	void (*f)(va_list);
+	void (*f)(va_list *);
 
 } op_t;
 

@@ -9,9 +9,9 @@
  *
  * Récupère un int depuis la va_list et l'affiche comme un caractère.
  */
-void print_char(va_list ap)
+void print_char(va_list *ap)
 {
-	printf("%c", va_arg(ap, int));
+	printf("%c", va_arg(*ap, int));
 }
 
 /**
@@ -20,9 +20,9 @@ void print_char(va_list ap)
  *
  * Récupère un int depuis la va_list et l'affiche.
  */
-void print_int(va_list ap)
+void print_int(va_list *ap)
 {
-	printf("%d", va_arg(ap, int));
+	printf("%d", va_arg(*ap, int));
 }
 /**
  * print_double - Affiche un nombre à virgule flottante
@@ -30,9 +30,9 @@ void print_int(va_list ap)
  *
  * Récupère un double depuis la va_list et l'affiche.
  */
-void print_double(va_list ap)
+void print_double(va_list *ap)
 {
-	printf("%f", va_arg(ap, double));
+	printf("%f", va_arg(*ap, double));
 }
 /**
  * print_string - Affiche une chaîne de caractères
@@ -41,9 +41,9 @@ void print_double(va_list ap)
  * Récupère un char* depuis la va_list et l'affiche.
  * Si la chaîne est NULL, affiche "(nil)".
  */
-void print_string(va_list ap)
+void print_string(va_list *ap)
 {
-	char *str = va_arg(ap, char *);
+	char *str = va_arg(*ap, char *);
 
 	if (str == NULL)
 		str = "(nil)";
@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j;
 	char *sep = "";
-	va_list ap;
+	va_list ap = NULL;
 
 	op_t print_flag[] = {
 		{'c', print_char},
@@ -71,17 +71,15 @@ void print_all(const char * const format, ...)
 		{0, NULL}
 	};
 	va_start(ap, format);
-	while (format[i] && format[i])
+	while (format[i] && format)
 	{
 		j = 0;
 		while (print_flag[j].op != 0)
 		{
-			if (format[i] == 0)
-				break;
 			if (format[i] == print_flag[j].op)
 			{
 				printf("%s", sep);
-				print_flag[j].f(ap);
+				print_flag[j].f(&ap);
 				sep = ", ";
 				break;
 			}
@@ -91,4 +89,5 @@ void print_all(const char * const format, ...)
 	}
 	va_end(ap);
 	printf("\n");
+	return;
 }
