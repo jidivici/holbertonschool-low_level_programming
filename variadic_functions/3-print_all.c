@@ -70,6 +70,11 @@ void print_all(const char * const format, ...)
 		{'s', print_string},
 		{0, NULL}
 	};
+	if (format[i] == 0 && format == NULL)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
@@ -80,7 +85,6 @@ void print_all(const char * const format, ...)
 				break;
 			if (format[i] == print_flag[j].op)
 			{
-
 				printf("%s", sep);
 				print_flag[j].f(ap);
 				sep = ", ";
