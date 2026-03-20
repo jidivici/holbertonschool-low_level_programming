@@ -4,24 +4,19 @@
 *
 * Return: 0 (sucess)
 */
-void separator(void)
-{
-	putchar(',');
-	putchar(' ');
-}
 
 int main(void)
 {
-	char c = '0';
+	int i = 0;
+	char *number = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n";
 
-	for (c = '0'; c <= '9'; c++)
+	while (number[i] != '\n')
 	{
-		putchar(c);
-		if (c == '9') {
-			putchar('\n');
-			return (0);
-			}
-		separator();
+		putchar(number[i]);
+		i++;
 	}
+	putchar(',');
+	putchar(' ');
+	putchar('\n');
 	return (0);
 }
