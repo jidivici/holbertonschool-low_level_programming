@@ -46,7 +46,10 @@ void print_string(va_list *ap)
 	char *str = va_arg(*ap, char *);
 
 	if (str == NULL)
-		str = "(nil)";
+	{
+		str = "(nill)";
+		printf("\n");
+	}
 	printf("%s", str);
 }
 /**
@@ -61,7 +64,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j;
 	char *sep = "";
-	va_list ap = NULL;
+	va_list ap;
 
 	op_t print_flag[] = {
 		{'c', print_char},
@@ -71,7 +74,7 @@ void print_all(const char * const format, ...)
 		{0, NULL}
 	};
 	va_start(ap, format);
-	while (format[i] && format)
+	while (format && format[i])
 	{
 		j = 0;
 		while (print_flag[j].op != 0)

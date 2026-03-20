@@ -20,10 +20,8 @@ void print_strings(const char *separator, const unsigned int n, ...);
  */
 typedef struct op_s
 {
-
 	char op;
 	void (*f)(va_list *);
-
 } op_t;
 
 void print_all(const char * const format, ...);
