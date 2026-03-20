@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
@@ -69,11 +70,6 @@ void print_all(const char * const format, ...)
 		{'f', print_double},
 		{0, NULL}
 	};
-	if (format == NULL || format[0] == '\0')
-	{
-		printf("\n");
-		return;
-	}
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
