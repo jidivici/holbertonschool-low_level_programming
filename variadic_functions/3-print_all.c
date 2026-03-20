@@ -69,9 +69,12 @@ void print_all(const char * const format, ...)
 		{'f', print_double},
 		{0, NULL}
 	};
-	va_start(ap, format);
-	if (format[i] == 0 && format == NULL)
+	if (format == NULL || format[0] == '\0')
+	{
+		printf("\n");
 		return;
+	}
+	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		j = 0;
