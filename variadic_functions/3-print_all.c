@@ -70,13 +70,8 @@ void print_all(const char * const format, ...)
 		{'s', print_string},
 		{0, NULL}
 	};
-	if (format[i] == 0 && format == NULL)
-	{
-		printf("\n");
-		return;
-	}
 	va_start(ap, format);
-	while (format[i] != '\0')
+	while (format[i] && format[i])
 	{
 		j = 0;
 		while (print_flag[j].op != 0)
