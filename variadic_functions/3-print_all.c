@@ -70,7 +70,7 @@ void print_all(const char * const format, ...)
 		{'s', print_string},
 		{0, NULL}
 	};
-	if (format == NULL && format[0] == 0)
+	if(format == NULL)
 	{
 		printf("\n");
 		return;
@@ -81,8 +81,11 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (print_flag[j].op != 0)
 		{
+			if (format[i] == 0)
+				break;
 			if (format[i] == print_flag[j].op)
 			{
+
 				printf("%s", sep);
 				print_flag[j].f(ap);
 				sep = ", ";
