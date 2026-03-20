@@ -70,6 +70,11 @@ void print_all(const char * const format, ...)
 		{'s', print_string},
 		{0, NULL}
 	};
+	if (format == NULL && format[0] == 0)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(ap, format);
 	while (format[i] != '\0')
 	{
