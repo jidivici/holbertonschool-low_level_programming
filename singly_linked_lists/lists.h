@@ -1,25 +1,24 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stddef.h>
+
 int _putchar(char c);
 int _strlen(char *str);
 char *_strdup(char *str);
 /**
- * struct dog - structure representing a dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner of the dog
+ * struct list_s - singly linked list
+ * @str: string stored in the node
+ * @len: length of the string
+ * @next: pointer to the next node
  */
-typedef struct dog
+typedef struct list_s
 {
-	char *name;
-	float age;
-	char *owner;
-} dog_t;
+	char *str;
+	size_t len;
+	struct list_s *next;
+} list_t;
 
-void init_dog(struct dog *d, char *name, float age, char *owner);
-void print_dog(struct dog *d);
-dog_t *new_dog(char *name, float age, char *owner);
-void free_dog(dog_t *d);
+size_t print_list(const list_t *h);
 
 #endif
