@@ -13,34 +13,14 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
+	size_t n = 0;
+	const dlistint_t *curr = h;
 
-}
-/**
- * main - check the code
- *
- * Return: Always EXIT_SUCCESS.
- */
-int main(void)
-{
-	dlistint_t *head;
-	dlistint_t *new;
-	dlistint_t hello = {8, NULL, NULL};
-	size_t n;
-
-	head = &hello;
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	while (curr)
 	{
-		dprintf(2, "Error: Can't malloc\n");
-		return (EXIT_FAILURE);
+		printf("%d\n", curr->n);
+		curr = curr->next;
+		n++;
 	}
-	new->n = 9;
-	head->prev = new;
-	new->next = head;
-	new->prev = NULL;
-	head = new;
-	n = dlistint_len(head);
-	printf("-> %lu elements\n", n);
-	free(new);
-	return (EXIT_SUCCESS);
+	return n;
 }
