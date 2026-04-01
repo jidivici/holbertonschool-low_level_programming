@@ -2,7 +2,7 @@
 
 ## Description
 
-This project implements and manipulates doubly linked lists in C.  
+This project implements and manipulates doubly linked lists in C.
 A doubly linked list is a data structure where each node contains a value and two pointers: one to the next node and one to the previous node.
 
 ## Objectives
@@ -14,7 +14,15 @@ A doubly linked list is a data structure where each node contains a value and tw
 
 ## Data Structure
 
-
+/**
+* struct dlistint_s - doubly linked list
+* @n: integer
+* @prev: points to the previous node
+* @next: points to the next node
+*
+* Description: doubly linked list node structure
+*
+*/
 typedef struct dlistint_s
 {
     int n;
