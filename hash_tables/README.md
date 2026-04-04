@@ -4,20 +4,25 @@
 Implémentation d'une table de hachage en C (paires clé/valeur, accès rapide O(1)).
 
 ## Compilation
-gcc -Wall -Werror -Wextra -pedantic *.c -o hash_tables
+gcc -Wall -Werror -Wextra -pedantic
+.c -o hash_tables
 
 ## Structures
 typedef struct hash_node_s
 {
-	char *key;
-	char *value;
-	struct hash_node_s *next;
+	char
+key;
+	char
+value;
+	struct hash_node_s
+next;
 } hash_node_t;
 
 typedef struct hash_table_s
 {
 	unsigned long int size;
-	hash_node_t **array;
+	hash_node_t
+array;
 } hash_table_t;
 
 ## Fonctions
@@ -41,3 +46,17 @@ Gestion par chaînage (liste liée).
 ## Complexité
 - accès / insertion : O(1)
 - pire cas : O(n)
+
+- struct hash_node_s - Node of a hash table
+- @key: The key, string
+- The key is unique in the HashTable @value: The value corresponding to a key
+- @next: A pointer to the next node of the List
+
+  struct hash_table_s - Hash table data structure
+
+- @size: The size of the array
+- @array: An array of size @size
+- Each cell of this array is a pointer to the first node of a linked list,
+- because we want our HashTable to use a Chaining collision handling
+
+- /
