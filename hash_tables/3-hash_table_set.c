@@ -2,7 +2,19 @@
 #include <string.h>
 #include <stdio.h>
 #include "hash_tables.h"
-
+/**
+ * create_node - creates a new hash node
+ * @key: key to store in the node
+ * @value: value associated with the key
+ *
+ * Description:
+ * This function allocates memory for a new hash node and duplicates
+ * the key and value using strdup. It initializes the next pointer to NULL.
+ * If memory allocation fails, the function frees any allocated memory
+ * and returns NULL.
+ *
+ * Return: pointer to the newly created node, or NULL on failure
+ */
 hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *new_node;
@@ -25,7 +37,20 @@ hash_node_t *create_node(const char *key, const char *value)
 	new_node->next = NULL;
 	return (new_node);
 }
-
+/**
+ * hash_table_set - adds or updates an element in a hash table
+ * @ht: pointer to the hash table
+ * @key: key associated with the value
+ * @value: value to store
+ *
+ * Description:
+ * This function inserts a new key/value pair into the hash table.
+ * If the key already exists, the value is updated by replacing the old one.
+ * If the key does not exist, a new node is created and added at the
+ * beginning of the linked list at the corresponding index.
+ *
+ * Return: 1 on success, 0 on failure
+ */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int h_index;
