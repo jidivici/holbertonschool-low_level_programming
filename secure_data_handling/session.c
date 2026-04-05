@@ -47,7 +47,6 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 		s->data = NULL;
 		s->data_len = 0;
 	}
-
 	return s;
 }
 
