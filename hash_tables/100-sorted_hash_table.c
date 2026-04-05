@@ -1,5 +1,7 @@
 #include "hash_tables.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
  * shash_table_create - Crée une table de hachage
  * @size: Taille du tableau (nombre de buckets)
@@ -20,7 +22,6 @@ shash_table_t *shash_table_create(unsigned long int size)
 	if (hash_table == NULL)
 		return (NULL);
 	hash_table->size = size;
-	/* ensure full initialization */
 	hash_table->shead = NULL;
 	hash_table->stail = NULL;
 	hash_table->array = malloc(sizeof(shash_node_t *) * size);
