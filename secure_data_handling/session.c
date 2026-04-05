@@ -9,6 +9,11 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 	s = (session_t *)malloc(sizeof(*s));
 	if (!s)
 		return NULL;
+	if (!id || (data_len > 0 && !data))
+	{
+		free(s);
+		return NULL;
+	}
 	if (!id)
 	{
 		free(s);
@@ -23,8 +28,11 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 	s->uid = uid;
 
 	if (data_len > 0) {
-		s->data = (unsigned char *)malloc(data_len);
-		if (!s->data) {
+		s->data = malloc(data_len);
+		if (!s->data)
+		{
+			free(s->id);
+			free(s);
 			return NULL;
 		}
 		memcpy(s->data, data, data_len);
