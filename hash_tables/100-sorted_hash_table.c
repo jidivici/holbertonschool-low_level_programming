@@ -279,3 +279,33 @@ void shash_table_delete(shash_table_t *ht)
 	free(ht->array);
 	free(ht);
 }
+
+/**
+ * shash_table_get - retrieves the value associated with a key
+ * @ht: pointer to the hash table
+ * @key: key to search for
+ *
+ * This function computes the index of the key using the hash function,
+ * then traverses the linked list at that index to find the matching key.
+ *
+ * Return: value associated with the key, or NULL if not found
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	unsigned long int index;
+	shash_node_t *curr;
+
+	if (!ht || !key || *key == '\0')
+		return (NULL);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	curr = ht->array[index];
+
+	while (curr)
+	{
+		if (strcmp(curr->key, key) == 0)
+			return (curr->value);
+		curr = curr->next;
+	}
+	return (NULL);
+}
