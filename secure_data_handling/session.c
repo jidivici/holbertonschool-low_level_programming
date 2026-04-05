@@ -6,9 +6,11 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 {
 	session_t *s;
 
-	if (!id || (data_len > 0 && !data))
+	if (!id)
 		return NULL;
 
+	if (data_len > 0 && !data)
+		return NULL;
 	s = malloc(sizeof(*s));
 	if (!s)
 		return NULL;
@@ -58,7 +60,7 @@ int session_set_data(session_t *s, const unsigned char *data, size_t data_len)
 		return 1;
 	}
 
-	tmp = (unsigned char *)realloc(s->data, data_len);
+	tmp = realloc(s->data, data_len);
 	if (!tmp)
           return 0;
 	s->data = tmp;
