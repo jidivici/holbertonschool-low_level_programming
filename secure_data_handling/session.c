@@ -50,16 +50,18 @@ int session_set_data(session_t *s, const unsigned char *data, size_t data_len)
 {
 	unsigned char *tmp;
 
-	if (!s || (!data && data_len > 0))
+	if (!s)
 		return 0;
 
-	if (data_len == 0)
-	{
+	if (data_len == 0) {
 		free(s->data);
 		s->data = NULL;
 		s->data_len = 0;
 		return 1;
 	}
+
+	if (!data)
+		return 0;
 
 	tmp = realloc(s->data, data_len);
 	if (!tmp)
