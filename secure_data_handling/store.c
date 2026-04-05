@@ -10,11 +10,15 @@ void store_init(store_t *st)
 
 static node_t *node_create(session_t *s)
 {
-	node_t *n = malloc(sizeof(*n));
+	node_t *n;
+
+	n = malloc(sizeof(*n));
 	if (!n)
 		return NULL;
+
 	n->sess = s;
 	n->next = NULL;
+
 	return n;
 }
 
