@@ -24,7 +24,7 @@ void hash_table_print(const hash_table_t *ht)
 			if (!cot)
 				printf(", ");
 			printf("'%s': '%s'", curr->key, curr->value);
-			cot = !cot;
+			cot = 0;
 			curr = curr->next;
 		}
 	}
