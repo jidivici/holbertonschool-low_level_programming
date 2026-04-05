@@ -6,8 +6,11 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 {
 	session_t *s;
 
-	s = malloc(sizeof(*s));
 	if (!id)
+		return NULL;
+
+	s = malloc(sizeof(*s));
+	if (!s)
 		return NULL;
 
 	s->id = strdup(id);
