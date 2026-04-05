@@ -55,7 +55,8 @@ int session_set_data(session_t *s, const unsigned char *data, size_t data_len)
 	if (!s)
 		return 0;
 
-	if (data_len == 0) {
+	if (data_len == 0)
+	{
 		free(s->data);
 		s->data = NULL;
 		s->data_len = 0;
@@ -70,7 +71,6 @@ int session_set_data(session_t *s, const unsigned char *data, size_t data_len)
 		return 0;
 
 	s->data = tmp;
-
 	memcpy(s->data, data, data_len);
 	s->data_len = data_len;
 
