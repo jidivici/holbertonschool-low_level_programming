@@ -6,17 +6,12 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 {
 	session_t *s;
 
-	if (!id)
-		return NULL;
-
-	if (data_len > 0 && !data)
-		return NULL;
 	s = malloc(sizeof(*s));
 	if (!s)
 		return NULL;
 
-	s->id = strdup(id);
-	if (!s->id)
+	s->id = id ? strdup(id) : NULL;
+	if (id && !s->id)
 	{
 		free(s);
 		return NULL;
@@ -26,6 +21,13 @@ session_t *session_create(const char *id, unsigned int uid, const unsigned char 
 
 	if (data_len > 0)
 	{
+		if (!data)
+		{
+			free(s->id);
+			free(s);
+			return NULL;
+		}
+
 		s->data = malloc(data_len);
 		if (!s->data)
 		{
