@@ -1,7 +1,7 @@
+#include "hash_tables.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "hash_tables.h"
 /**
  * shash_table_create - Crée une table de hachage
  * @size: Taille du tableau (nombre de buckets)
@@ -22,9 +22,15 @@ shash_table_t *shash_table_create(unsigned long int size)
 	if (hash_table == NULL)
 		return (NULL);
 	hash_table->size = size;
+	/* ensure full initialization */
+	hash_table->shead = NULL;
+	hash_table->stail = NULL;
 	hash_table->array = malloc(sizeof(shash_node_t *) * size);
 	if (hash_table->array == NULL)
+	{
+		free(hash_table);
 		return (NULL);
+	}
 	for (i = 0; i < hash_table->size; i++)
 		hash_table->array[i] = NULL;
 	return (hash_table);
@@ -46,6 +52,8 @@ shash_node_t *create_node(const char *key, const char *value)
 {
 	shash_node_t *new_node;
 
+	if (!key || !value)
+		return (NULL);
 	new_node = malloc(sizeof(shash_node_t));
 	if (new_node == NULL)
 		return (NULL);
@@ -59,6 +67,8 @@ shash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 	}
 	new_node->next = NULL;
+	new_node->sprev = NULL;
+	new_node->snext = NULL;
 	return (new_node);
 }
 /**
@@ -77,13 +87,17 @@ shash_node_t *create_node(const char *key, const char *value)
 int update_value(shash_node_t *head, const char *key, const char *value)
 {
 	shash_node_t *curr = head;
+	char *new_value;
 
 	while (curr)
 	{
 		if (strcmp(curr->key, key) == 0)
 		{
+			new_value = strdup(value);
+			if (!new_value)
+				return (0);
 			free(curr->value);
-			curr->value = strdup(value);
+			curr->value = new_value;
 			return (1);
 		}
 		curr = curr->next;
@@ -111,14 +125,12 @@ void insert_sorted(shash_table_t *ht, shash_node_t *node)
 
 	node->sprev = NULL;
 	node->snext = NULL;
-
 	if (!ht->shead)
 	{
 		ht->shead = node;
 		ht->stail = node;
 		return;
 	}
-
 	if (strcmp(node->key, ht->shead->key) < 0)
 	{
 		node->snext = ht->shead;
@@ -189,7 +201,7 @@ void shash_table_print(const shash_table_t *ht)
 	shash_node_t *curr;
 	int first = 1;
 
-	if (!ht)
+	if (!ht || !ht->array)
 		return;
 	printf("{");
 	curr = ht->shead;
@@ -218,7 +230,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	shash_node_t *curr;
 	int first = 1;
 
-	if (!ht)
+	if (!ht || !ht->array)
 		return;
 	printf("{");
 	curr = ht->stail;
