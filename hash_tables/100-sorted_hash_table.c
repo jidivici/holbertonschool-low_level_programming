@@ -1,7 +1,4 @@
 #include "hash_tables.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 /**
  * shash_table_create - Crée une table de hachage
  * @size: Taille du tableau (nombre de buckets)
