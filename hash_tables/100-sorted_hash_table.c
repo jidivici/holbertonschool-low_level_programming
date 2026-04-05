@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+#include <stdio.h>
 /**
  * shash_table_create - Crée une table de hachage
  * @size: Taille du tableau (nombre de buckets)
@@ -279,7 +280,6 @@ void shash_table_delete(shash_table_t *ht)
 	free(ht->array);
 	free(ht);
 }
-
 /**
  * shash_table_get - retrieves the value associated with a key
  * @ht: pointer to the hash table
