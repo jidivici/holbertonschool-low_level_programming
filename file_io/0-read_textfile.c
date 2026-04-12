@@ -23,16 +23,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (fd == -1)
 			return (0);
 		n = read(fd, buff, letters);
-		if (n == -1)
-		{
-			close(fd);
-			free(buff);
-			return (0);
-		}
 		buff = malloc(letters * sizeof(char));
 		if (!buff)
 		{
 			close(fd);
+			return (0);
+		}
+		if (n == -1)
+		{
+			close(fd);
+			free(buff);
 			return (0);
 		}
 		write(1, buff, n);
