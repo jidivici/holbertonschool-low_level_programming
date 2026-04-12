@@ -6,7 +6,7 @@
  */
 static void exit_usage(void)
 {
-	dprintf(2, "Usage: cp file_from file_to\n");
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 	exit(97);
 }
 /**
@@ -20,7 +20,7 @@ static void exit_usage(void)
  */
 static void exit_read_error(const char *file_from, int fd_from, int fd_to)
 {
-	dprintf(2, "Error: Can't read from file %s\n", file_from);
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 	if (fd_from != -1)
 		close(fd_from);
 	if (fd_to != -1)
@@ -38,7 +38,7 @@ static void exit_read_error(const char *file_from, int fd_from, int fd_to)
  */
 static void exit_write_error(const char *file_to, int fd_from, int fd_to)
 {
-	dprintf(2, "Error: Can't write to %s\n", file_to);
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 	if (fd_from != -1)
 		close(fd_from);
 	if (fd_to != -1)
@@ -53,7 +53,7 @@ static void exit_write_error(const char *file_to, int fd_from, int fd_to)
  */
 static void exit_close_error(int fd)
 {
-	dprintf(2, "Error: Can't close fd %d\n", fd);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 	exit(100);
 }
 /**
